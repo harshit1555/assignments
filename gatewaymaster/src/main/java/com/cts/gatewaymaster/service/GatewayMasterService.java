@@ -37,7 +37,7 @@ public class GatewayMasterService
 	public GatewayMasterDto searchById(long id) throws GatewayNotFoundException
 	{
 		log.info("getway is searching by id:");
-		var gatewayMaster=gatewayMasterRepo.findById(id).orElse(null);	
+		var gatewayMaster=gatewayMasterRepo.getById(id);	
 		if(gatewayMaster==null) {
 			
 			throw new GatewayNotFoundException("Gateway with id ["+id+"] not found");

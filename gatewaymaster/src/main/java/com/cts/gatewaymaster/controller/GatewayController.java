@@ -27,13 +27,7 @@ public class GatewayController
 {
 	@Autowired
 	GatewayMasterRepo gatewayRepo;
-		@PostConstruct
-		public void init()
-		{
-			
-		GatewayMaster gatewayMaster=new GatewayMaster(2, "Abc", "asgd", "best gateway", 10, false);
-		gatewayRepo.save(gatewayMaster);
-		}
+		
 	@Autowired
 	GatewayMasterService  gatewayMasterService;
 	@GetMapping("/getAll")
