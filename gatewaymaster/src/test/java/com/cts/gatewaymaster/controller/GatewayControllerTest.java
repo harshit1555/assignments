@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cts.gatewaymaster.dto.GatewayMasterDto;
+<<<<<<< HEAD
 import com.cts.gatewaymaster.model.GatewayMaster;
 import com.cts.gatewaymaster.service.GatewayMasterService;
 @SpringBootTest
@@ -36,6 +37,29 @@ class GatewayControllerTest
 	void testSearchGatewayById() throws Exception
 	{
 		GatewayMasterDto gatewayMasterDto=new GatewayMasterDto(2, "AWS", "Gateway2", "good gateway", 2, true);
+=======
+import com.cts.gatewaymaster.service.GatewayMasterService;
+@SpringBootTest
+class GatewayControllerTest 
+{
+	@Autowired
+	GatewayController gatewayController;
+	@MockBean
+	GatewayMasterService gatewayMasterService;
+	@Test
+	void testGetAllGatway() throws Exception
+	{
+		List<GatewayMasterDto> listOfDto=new ArrayList();
+		GatewayMasterDto gatewayMasterDto=new GatewayMasterDto(2, "Abc", "asgd", "best gateway", 10, false);
+		listOfDto.add(gatewayMasterDto);
+		Mockito.when(gatewayMasterService.getAllGateWay()).thenReturn(listOfDto);
+		assertEquals(gatewayMasterService.getAllGateWay(), gatewayController.getAllGatewayMaster());
+	}
+	@Test
+	void testSearchGatewayById() throws Exception
+	{
+		GatewayMasterDto gatewayMasterDto=new GatewayMasterDto(2, "Abc", "asgd", "best gateway", 10, false);
+>>>>>>> branch 'master' of https://github.com/harshit1555/assignments.git
 		Mockito.when(gatewayMasterService.searchById(2L)).thenReturn(gatewayMasterDto);
 		assertEquals(gatewayMasterService.searchById(2L), gatewayController.searchGatewayById(2L));
 	}

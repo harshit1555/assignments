@@ -34,6 +34,7 @@ class GatewaymasterApplicationTests
 	{
 		List<GatewayMaster> list=new ArrayList<>();
 		
+<<<<<<< HEAD
 		GatewayMaster gatewayMaster=new GatewayMaster(1, "Zuul", "Gateway1", "best gateway", 1, false);
 		GatewayMaster gatewayMaster1=new GatewayMaster(2, "AWS", "Gateway2", "good gateway", 2, true);
 		list.add(gatewayMaster);
@@ -60,6 +61,31 @@ class GatewaymasterApplicationTests
 		GatewayMaster gatewayMaster=new GatewayMaster(3, "Abc", "asgd", "best gateway", 10, false);
 		Mockito.when(gatewayMasterRepo.save(gatewayMaster)).thenReturn(gatewayMaster);
 		GatewayMasterDto gatewayMasterDto=new GatewayMasterDto(3, "Abc", "asgd", "best gateway", 10, false);
+=======
+		GatewayMaster gatewayMaster=new GatewayMaster(2, "Abc", "asgd", "best gateway", 10, false);
+		list.add(gatewayMaster);
+		Mockito.when(gatewayMasterRepo.findAll()).thenReturn(list);
+		List<GatewayMasterDto> listOfGatewayMasterDto=gatewayMasterService.getAllGateWay();
+		List<GatewayMaster> listOfGatewayMaster=new ArrayList<>();
+		listOfGatewayMasterDto.forEach(gatewayMasterDto->{listOfGatewayMaster.add(gatewayMasterService.gateWayMasterDtoToGatewayMaster(gatewayMasterDto));});
+		assertEquals(gatewayMasterRepo.findAll(), listOfGatewayMaster);
+	}
+	@Test
+	 void testSearchById() throws Exception
+	{
+		GatewayMaster gatewayMaster=new GatewayMaster(2, "Abc", "asgd", "best gateway", 10, false);
+		Mockito.when(gatewayMasterRepo.getById(2L)).thenReturn(gatewayMaster);
+		
+		GatewayMaster gatewayMasterActual=gatewayMasterService.gateWayMasterDtoToGatewayMaster(gatewayMasterService.searchById(2L));
+		assertEquals(gatewayMasterRepo.getById(2L), gatewayMasterActual);
+	}
+	@Test
+	 void testSave()
+	{
+		GatewayMaster gatewayMaster=new GatewayMaster(2, "Abc", "asgd", "best gateway", 10, false);
+		Mockito.when(gatewayMasterRepo.save(gatewayMaster)).thenReturn(gatewayMaster);
+		GatewayMasterDto gatewayMasterDto=new GatewayMasterDto(2, "Abc", "asgd", "best gateway", 10, false);
+>>>>>>> branch 'master' of https://github.com/harshit1555/assignments.git
 		GatewayMaster Actual=gatewayMasterService.gateWayMasterDtoToGatewayMaster(gatewayMasterService.saveGatewayMaster(gatewayMasterDto));
 		assertEquals(gatewayMasterRepo.save(gatewayMaster).toString(), Actual.toString());
 		
