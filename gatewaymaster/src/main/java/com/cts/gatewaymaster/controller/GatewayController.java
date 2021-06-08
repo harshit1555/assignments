@@ -27,17 +27,7 @@ public class GatewayController
 {
 	@Autowired
 	GatewayMasterRepo gatewayRepo;
-<<<<<<< HEAD
 		
-=======
-		@PostConstruct
-		public void init()
-		{
-			
-		GatewayMaster gatewayMaster=new GatewayMaster(2, "Abc", "asgd", "best gateway", 10, false);
-		gatewayRepo.save(gatewayMaster);
-		}
->>>>>>> branch 'master' of https://github.com/harshit1555/assignments.git
 	@Autowired
 	GatewayMasterService  gatewayMasterService;
 	@GetMapping("/getAll")
