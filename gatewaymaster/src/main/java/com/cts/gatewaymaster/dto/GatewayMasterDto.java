@@ -1,5 +1,6 @@
 package com.cts.gatewaymaster.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Valid
-public class GatewayMasterDto 
+public class GatewayMasterDto implements Serializable
 {
 
 	@NotNull
@@ -28,7 +29,7 @@ public class GatewayMasterDto
 	@NotNull
 	private boolean isActive;
 	@NotNull
-	private Date createdon=new Date(System.currentTimeMillis());
+	private Date createdon=new Date(System.currentTimeMillis()); 
 	@NotNull
 	private Date updatedon=new Date(System.currentTimeMillis());
 	public GatewayMasterDto(@NotNull long gatewayId, @NotNull String gatewayType, @NotNull String gatewayCode,

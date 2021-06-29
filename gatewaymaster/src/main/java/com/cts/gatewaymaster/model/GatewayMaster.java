@@ -1,6 +1,7 @@
 package com.cts.gatewaymaster.model;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Valid
 @Entity
 @Data
-@AllArgsConstructor
+@AllArgsConstructor 
 @NoArgsConstructor
 public class GatewayMaster 
 {
@@ -52,9 +53,4 @@ public class GatewayMaster
 		this.gatewayTypeProviderId = gatewayTypeProviderId;
 		this.isActive = isActive;
 	}
-	
-	
-	
-	
-		
 }

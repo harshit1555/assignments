@@ -5,14 +5,11 @@ import java.util.Date;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
 import com.cts.gatewaymaster.dto.ErrorResponseDto;
-import com.cts.gatewaymaster.exception.GatewayNotFoundException;
-
-public class GlobalExceptionHandler 
+public class GlobalExceptionHandler  
 {
 	@ResponseStatus(code = HttpStatus.NOT_FOUND)
-	@ExceptionHandler({GatewayNotFoundException.class})
+	@ExceptionHandler({Exception.class})
 	public ErrorResponseDto cartNotFoundException(Exception ex,HttpServletRequest request )
 	{
 		return new ErrorResponseDto(new Date(), HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND.getReasonPhrase(), ex.getMessage(), request.getRequestURI());
